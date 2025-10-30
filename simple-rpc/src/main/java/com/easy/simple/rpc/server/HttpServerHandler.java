@@ -1,5 +1,6 @@
 package com.easy.simple.rpc.server;
 
+import com.easy.simple.rpc.config.RpcConfig;
 import com.easy.simple.rpc.enity.RpcRequest;
 import com.easy.simple.rpc.enity.RpcResponse;
 import com.easy.simple.rpc.registry.LocalRegistry;
@@ -21,7 +22,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
     @Override
     public void handle(HttpServerRequest request) {
         // 指定序列化器
-        final Serializer serializer = new JdkSerializer();
+        Serializer serializer = RpcConfig.getInstance().getSerializer();
 
         // 记录日志
         System.out.println("Received request: " + request.method() + " " + request.uri());

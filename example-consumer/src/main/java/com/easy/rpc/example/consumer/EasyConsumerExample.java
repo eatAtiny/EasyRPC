@@ -3,6 +3,7 @@ package com.easy.rpc.example.consumer;
 
 import com.easy.example.common.enity.User;
 import com.easy.example.common.service.UserService;
+import com.easy.simple.rpc.config.RpcConfig;
 import com.easy.simple.rpc.proxy.ServiceProxyFactory;
 
 /**
@@ -14,6 +15,10 @@ public class EasyConsumerExample {
         // 静态代理
 //        UserService userService = new UserServiceProxy();
         // 动态代理
+        // 使用json序列化器
+        RpcConfig rpcConfig = RpcConfig.getInstance();
+        rpcConfig.setSerializerType("json");
+
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("easy");

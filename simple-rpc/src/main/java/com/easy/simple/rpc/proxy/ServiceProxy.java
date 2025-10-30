@@ -3,6 +3,7 @@ package com.easy.simple.rpc.proxy;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
+import com.easy.simple.rpc.config.RpcConfig;
 import com.easy.simple.rpc.enity.RpcRequest;
 import com.easy.simple.rpc.enity.RpcResponse;
 import com.easy.simple.rpc.serializer.JdkSerializer;
@@ -33,8 +34,10 @@ public class ServiceProxy implements InvocationHandler {
             return method.invoke(this, args);
         }
 
+        RpcConfig rpcConfig = RpcConfig.getInstance();
+
         // 指定序列化器
-        Serializer serializer = new JdkSerializer();
+        Serializer serializer = rpcConfig.getSerializer();
 
         // 构造请求
         RpcRequest rpcRequest = RpcRequest.builder()
@@ -48,7 +51,7 @@ public class ServiceProxy implements InvocationHandler {
             byte[] bodyBytes = serializer.serialize(rpcRequest);
             // 发送请求
             // todo 注意，这里地址被硬编码了（需要使用注册中心和服务发现机制解决）
-            try (HttpResponse httpResponse = HttpRequest.post("http://localhost:8080")
+            try (HttpResponse httpResponse = HttpRequest.post(rpcConfig.getServiceAddress())
                     .body(bodyBytes)
                     .execute()) {
                 byte[] result = httpResponse.bodyBytes();
