@@ -1,0 +1,13 @@
+# Maven构建目录
+**/target/
+
+# 允许跟踪所有子模块中的源文件
+!**/src/
+!**/pom.xml
+!**/README.md
+!**/LICENSE
+
+# 其他标准忽略规则（操作系统文件、日志等）
+.DS_Store
+*.log
+*.tmp
