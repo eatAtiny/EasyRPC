@@ -23,6 +23,9 @@ public class RpcConfig {
     // 远程服务ip
     private String serviceAddress = "http://localhost";
 
+    // mock 服务
+    private boolean mock = false;
+
     // 序列化器
     private String serializerType = SerializerType.JDK.getType();
 

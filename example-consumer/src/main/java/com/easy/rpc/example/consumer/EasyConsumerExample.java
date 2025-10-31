@@ -29,5 +29,9 @@ public class EasyConsumerExample {
         } else {
             System.out.println("user == null");
         }
+
+        UserService userService1 = ServiceProxyFactory.getProxy(UserService.class);
+        int number = userService1.getNumber();
+        System.out.println(number);
     }
 }

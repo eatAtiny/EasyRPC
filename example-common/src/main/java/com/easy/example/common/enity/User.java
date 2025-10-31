@@ -1,19 +1,18 @@
 package com.easy.example.common.enity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
  * 用户
  */
+@Data
 public class User implements Serializable {
 
     private String name;
 
-    public String getName() {
-        return name;
-    }
+    private int age;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String email;
 }
