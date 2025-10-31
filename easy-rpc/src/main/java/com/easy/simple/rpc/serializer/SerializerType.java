@@ -9,11 +9,24 @@ public enum SerializerType {
      * JDK序列化器
      */
     JDK("jdk"),
-    
     /**
      * JSON序列化器
      */
-    JSON("json");
+    JSON("json"),
+    /**
+     * Hessian序列化器
+     */
+    HESSIAN("hessian"),
+
+    /**
+     * Kryo序列化器
+     */
+    KRYO("kryo"),
+
+    /**
+     * Protobuf序列化器
+     */
+    PROTOBUF("protobuf");
     
     private final String type;
     

@@ -1,0 +1,1 @@
+kryo=com.easy.rpc.example.provider.serializer.KryoSerializer

@@ -1,0 +1,5 @@
+jdk=com.easy.simple.rpc.serializer.impl.JdkSerializer
+hessian=com.easy.simple.rpc.serializer.impl.HessianSerializer
+json=com.easy.simple.rpc.serializer.impl.JsonSerializer
+kryo=com.easy.simple.rpc.serializer.impl.KryoSerializer
+protobuf=com.easy.simple.rpc.serializer.impl.ProtobufSerializer

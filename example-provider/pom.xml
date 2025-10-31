@@ -23,6 +23,13 @@
             <artifactId>easy-rpc</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        
+        <!-- Kryo 序列化库依赖 -->
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>5.4.0</version>
+        </dependency>
     </dependencies>
 
 </project>
