@@ -1,0 +1,1 @@
+etcd=com.easy.simple.rpc.registry.impl.EtcdRegistry

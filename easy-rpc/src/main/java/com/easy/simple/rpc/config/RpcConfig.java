@@ -1,7 +1,5 @@
 package com.easy.simple.rpc.config;
 
-import com.easy.simple.rpc.serializer.Serializer;
-import com.easy.simple.rpc.serializer.SerializerFactory;
 import com.easy.simple.rpc.serializer.SerializerType;
 import com.easy.simple.rpc.server.HttpServer;
 import com.easy.simple.rpc.server.VertxHttpServer;
@@ -21,13 +19,16 @@ public class RpcConfig {
     private String serverType = "vertx";
     
     // 远程服务ip
-    private String serviceAddress = "http://localhost";
+    private String serviceHost = "http://localhost";
 
     // mock 服务
     private boolean mock = false;
 
     // 序列化器
     private String serializerType = SerializerType.JDK.getType();
+
+    // 注册中心配置
+    private RegistryConfig registryConfig = new RegistryConfig();
 
     // 服务器
     private HttpServer server = new VertxHttpServer();
