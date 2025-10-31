@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 设置根日志级别为INFO -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <!-- 设置第三方库的日志级别为WARN，减少日志输出 -->
+    <!-- Netty相关日志 -->
+    <logger name="io.netty" level="WARN" />
+    <!-- Vert.x相关日志 -->
+    <logger name="io.vertx" level="WARN" />
+    <!-- Jackson相关日志 -->
+    <logger name="com.fasterxml.jackson" level="WARN" />
+    <!-- Hutool相关日志 -->
+    <logger name="cn.hutool" level="WARN" />
+
+    <!-- 保留应用程序自身的INFO级别日志 -->
+    <logger name="com.easy" level="INFO" />
+
+    <!-- 如果需要查看特定类的详细日志，可以单独配置 -->
+    <!-- 例如：<logger name="com.easy.simple.rpc.server.HttpServerHandler" level="DEBUG" /> -->
+</configuration>

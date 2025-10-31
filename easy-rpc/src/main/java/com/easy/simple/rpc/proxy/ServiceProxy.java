@@ -3,11 +3,12 @@ package com.easy.simple.rpc.proxy;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
+import com.easy.simple.rpc.RpcApplication;
 import com.easy.simple.rpc.config.RpcConfig;
 import com.easy.simple.rpc.enity.RpcRequest;
 import com.easy.simple.rpc.enity.RpcResponse;
-import com.easy.simple.rpc.serializer.JdkSerializer;
 import com.easy.simple.rpc.serializer.Serializer;
+import com.easy.simple.rpc.serializer.SerializerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
@@ -34,10 +35,10 @@ public class ServiceProxy implements InvocationHandler {
             return method.invoke(this, args);
         }
 
-        RpcConfig rpcConfig = RpcConfig.getInstance();
-
         // 指定序列化器
-        Serializer serializer = rpcConfig.getSerializer();
+        Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfig().getSerializerType());
+
+        System.out.println(serializer.getClass().getName());
 
         // 构造请求
         RpcRequest rpcRequest = RpcRequest.builder()
@@ -51,7 +52,7 @@ public class ServiceProxy implements InvocationHandler {
             byte[] bodyBytes = serializer.serialize(rpcRequest);
             // 发送请求
             // todo 注意，这里地址被硬编码了（需要使用注册中心和服务发现机制解决）
-            try (HttpResponse httpResponse = HttpRequest.post(rpcConfig.getServiceAddress())
+            try (HttpResponse httpResponse = HttpRequest.post(RpcApplication.getRpcConfig().getServiceAddress() + ":" + RpcApplication.getRpcConfig().getServerPort())
                     .body(bodyBytes)
                     .execute()) {
                 byte[] result = httpResponse.bodyBytes();

@@ -1,11 +1,12 @@
 package com.easy.simple.rpc.server;
 
+import com.easy.simple.rpc.RpcApplication;
 import com.easy.simple.rpc.config.RpcConfig;
 import com.easy.simple.rpc.enity.RpcRequest;
 import com.easy.simple.rpc.enity.RpcResponse;
 import com.easy.simple.rpc.registry.LocalRegistry;
-import com.easy.simple.rpc.serializer.JdkSerializer;
 import com.easy.simple.rpc.serializer.Serializer;
+import com.easy.simple.rpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerRequest;
@@ -22,8 +23,9 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
     @Override
     public void handle(HttpServerRequest request) {
         // 指定序列化器
-        Serializer serializer = RpcConfig.getInstance().getSerializer();
+        Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfig().getSerializerType());
 
+        System.out.println(serializer.getClass().getName());
         // 记录日志
         System.out.println("Received request: " + request.method() + " " + request.uri());
 
@@ -45,6 +47,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
                 doResponse(request, rpcResponse, serializer);
                 return;
             }
+            System.out.println(rpcRequest);
 
             try {
                 // 获取要调用的服务实现类，通过反射调用

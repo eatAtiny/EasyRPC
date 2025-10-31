@@ -1,4 +1,6 @@
-package com.easy.simple.rpc.serializer;
+package com.easy.simple.rpc.serializer.impl;
+
+import com.easy.simple.rpc.serializer.Serializer;
 
 import java.io.*;
 

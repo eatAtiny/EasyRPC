@@ -1,8 +1,8 @@
-package com.easy.simple.rpc.serializer;
+package com.easy.simple.rpc.serializer.impl;
 
 import com.easy.simple.rpc.enity.RpcRequest;
 import com.easy.simple.rpc.enity.RpcResponse;
-import com.fasterxml.jackson.databind.JavaType;
+import com.easy.simple.rpc.serializer.Serializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
@@ -15,7 +15,7 @@ import java.util.Map;
  * 增强版JSON序列化器
  * 解决类型信息丢失问题
  */
-public class JSONSerializer implements Serializer {
+public class JsonSerializer implements Serializer {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     private static final TypeFactory TYPE_FACTORY = OBJECT_MAPPER.getTypeFactory();
 
