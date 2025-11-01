@@ -71,4 +71,12 @@ public class RegistryTest {
         System.out.println(serviceMetaInfoList);
         Assert.assertNotNull(serviceMetaInfoList);
     }
+
+    @Test
+    public void heartBeat() throws Exception {
+        // 注册服务
+        register();
+        // 等待心跳续签
+        Thread.sleep(15000);
+    }
 }

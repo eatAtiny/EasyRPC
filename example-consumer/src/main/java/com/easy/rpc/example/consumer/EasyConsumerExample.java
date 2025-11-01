@@ -7,6 +7,8 @@ import com.easy.simple.rpc.RpcApplication;
 import com.easy.simple.rpc.config.RpcConfig;
 import com.easy.simple.rpc.proxy.ServiceProxyFactory;
 
+import static cn.hutool.core.thread.ThreadUtil.sleep;
+
 /**
  * 简易服务消费者示例
  */

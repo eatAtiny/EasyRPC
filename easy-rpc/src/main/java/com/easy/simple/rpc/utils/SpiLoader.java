@@ -63,10 +63,10 @@ public class SpiLoader {
     /**
      * 获取某个接口的实例
      *
-     * @param tClass
-     * @param key
-     * @param <T>
-     * @return
+     * @param tClass 接口类
+     * @param key    实现类的 key
+     * @param <T>    接口类型
+     * @return 实现类的实例
      */
     public static <T> T getInstance(Class<?> tClass, String key) {
         String tClassName = tClass.getName();
@@ -95,8 +95,8 @@ public class SpiLoader {
     /**
      * 加载某个类型
      *
-     * @param loadClass
-     * @throws IOException
+     * @param loadClass 要加载的类
+     * @throws IOException 如果加载过程中发生 I/O 错误
      */
     public static Map<String, Class<?>> load(Class<?> loadClass) {
         log.info("加载类型为 {} 的 SPI", loadClass.getName());
