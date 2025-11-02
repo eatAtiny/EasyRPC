@@ -1,6 +1,7 @@
 package com.easy.rpc.example.consumer;
 
 
+import cn.hutool.core.thread.ThreadUtil;
 import com.easy.example.common.enity.User;
 import com.easy.example.common.service.UserService;
 import com.easy.simple.rpc.RpcApplication;
@@ -26,8 +27,11 @@ public class EasyConsumerExample {
         user.setName("easy");
         // 调用
         User newUser = userService.getUser(user);
-        if (newUser != null) {
-            System.out.println(newUser.getName());
+        User newUser1 = userService.getUser(user);
+        sleep(5000);
+        User newUser2 = userService.getUser(user);
+        if (newUser2 != null) {
+            System.out.println(newUser2.getName());
         } else {
             System.out.println("user == null");
         }

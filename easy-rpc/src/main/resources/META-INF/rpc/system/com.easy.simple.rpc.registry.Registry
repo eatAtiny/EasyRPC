@@ -1,1 +1,2 @@
 etcd=com.easy.simple.rpc.registry.impl.EtcdRegistry
+zookeeper=com.easy.simple.rpc.registry.impl.ZooKeeperRegistry

@@ -22,8 +22,15 @@ import java.util.stream.Collectors;
 
 public class EtcdRegistry implements Registry {
 
+    /**
+     * etcd 客户端
+     */
     private Client client;
 
+
+    /**
+     * etcd kv 客户端
+     */
     private KV kvClient;
     
     /**
