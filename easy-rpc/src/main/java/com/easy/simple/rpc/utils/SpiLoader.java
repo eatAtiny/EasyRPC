@@ -1,6 +1,7 @@
 package com.easy.simple.rpc.utils;
 
 import cn.hutool.core.io.resource.ResourceUtil;
+import com.easy.simple.rpc.fault.retry.RetryStrategy;
 import com.easy.simple.rpc.loadbalance.LoadBalancer;
 import com.easy.simple.rpc.serializer.Serializer;
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +50,7 @@ public class SpiLoader {
     /**
      * 动态加载的类列表
      */
-    private static final List<Class<?>> LOAD_CLASS_LIST = Arrays.asList(Serializer.class, LoadBalancer.class);
+    private static final List<Class<?>> LOAD_CLASS_LIST = Arrays.asList(Serializer.class, LoadBalancer.class, RetryStrategy.class);
 
     /**
      * 加载所有类型

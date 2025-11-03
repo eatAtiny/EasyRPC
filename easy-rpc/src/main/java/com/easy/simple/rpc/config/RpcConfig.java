@@ -1,5 +1,6 @@
 package com.easy.simple.rpc.config;
 
+import com.easy.simple.rpc.fault.retry.RetryStrategyType;
 import com.easy.simple.rpc.loadbalance.LoadBalancerType;
 import com.easy.simple.rpc.serializer.SerializerType;
 import com.easy.simple.rpc.server.HttpServer;
@@ -33,6 +34,9 @@ public class RpcConfig {
 
     // 负载均衡器
     private String loadBalancerType = LoadBalancerType.ROUND_ROBIN.getType();
+
+    // 重试策略
+    private String retryStrategyType = RetryStrategyType.NO.getType();
 
     // 服务器
 //    private HttpServer server = new VertxHttpServer();

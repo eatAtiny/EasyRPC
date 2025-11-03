@@ -1,0 +1,2 @@
+no=com.easy.simple.rpc.fault.retry.impl.NoRetryStrategy
+fixedInterval=com.easy.simple.rpc.fault.retry.impl.FixedIntervalRetryStrategy
