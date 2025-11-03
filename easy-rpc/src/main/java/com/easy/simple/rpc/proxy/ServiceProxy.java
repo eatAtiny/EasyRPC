@@ -8,6 +8,8 @@ import com.easy.simple.rpc.config.RpcConfig;
 import com.easy.simple.rpc.enity.RpcRequest;
 import com.easy.simple.rpc.enity.RpcResponse;
 import com.easy.simple.rpc.enity.ServiceMetaInfo;
+import com.easy.simple.rpc.loadbalance.LoadBalancer;
+import com.easy.simple.rpc.loadbalance.LoadBalancerFactory;
 import com.easy.simple.rpc.protocol.CompactProtocolCodec;
 import com.easy.simple.rpc.protocol.ProtocolConstant;
 import com.easy.simple.rpc.protocol.ProtocolMessage;
@@ -26,7 +28,9 @@ import io.vertx.core.net.NetClient;
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -78,7 +82,12 @@ public class ServiceProxy implements InvocationHandler {
             if (serviceMetaInfoList.isEmpty()) {
                 throw new RuntimeException("暂无服务地址");
             }
-            ServiceMetaInfo selectedServiceMetaInfo = serviceMetaInfoList.get(0);
+            // 负载均衡器
+            LoadBalancer loadBalancer = LoadBalancerFactory.getInstance(rpcConfig.getLoadBalancerType());
+            // 使用方法名作为负载均衡的参数
+            Map<String, Object> requestParams = new HashMap<>();
+            requestParams.put("methodName", rpcRequest.getMethodName());
+            ServiceMetaInfo selectedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfoList);
 //            // 发送Http请求
 //            try (HttpResponse httpResponse = HttpRequest.post(selectedServiceMetaInfo.getServiceAddress())
 //                    .body(bodyBytes)

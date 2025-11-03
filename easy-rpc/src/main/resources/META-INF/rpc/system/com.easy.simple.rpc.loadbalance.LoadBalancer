@@ -1,0 +1,4 @@
+consistentHash=com.easy.simple.rpc.loadbalance.impl.ConsistentHashLoadBalancer
+random=com.easy.simple.rpc.loadbalance.impl.RandomLoadBalancer
+roundRobin=com.easy.simple.rpc.loadbalance.impl.RoundRobinLoadBalancer
+leastConnections=com.easy.simple.rpc.loadbalance.impl.LeastConnectionsLoadBalancer

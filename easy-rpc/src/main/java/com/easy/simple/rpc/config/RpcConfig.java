@@ -1,5 +1,6 @@
 package com.easy.simple.rpc.config;
 
+import com.easy.simple.rpc.loadbalance.LoadBalancerType;
 import com.easy.simple.rpc.serializer.SerializerType;
 import com.easy.simple.rpc.server.HttpServer;
 import com.easy.simple.rpc.server.VertxHttpServer;
@@ -29,6 +30,9 @@ public class RpcConfig {
 
     // 注册中心配置
     private RegistryConfig registryConfig = new RegistryConfig();
+
+    // 负载均衡器
+    private String loadBalancerType = LoadBalancerType.ROUND_ROBIN.getType();
 
     // 服务器
 //    private HttpServer server = new VertxHttpServer();
