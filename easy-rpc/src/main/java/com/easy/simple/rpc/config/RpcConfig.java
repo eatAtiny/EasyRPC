@@ -19,7 +19,7 @@ public class RpcConfig {
     private String serverType = "vertx";
     
     // 远程服务ip
-    private String serviceHost = "http://localhost";
+    private String serviceHost = "localhost";
 
     // mock 服务
     private boolean mock = false;
@@ -31,5 +31,5 @@ public class RpcConfig {
     private RegistryConfig registryConfig = new RegistryConfig();
 
     // 服务器
-    private HttpServer server = new VertxHttpServer();
+//    private HttpServer server = new VertxHttpServer();
 }

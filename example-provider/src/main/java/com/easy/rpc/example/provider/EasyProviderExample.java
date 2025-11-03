@@ -9,6 +9,7 @@ import com.easy.simple.rpc.registry.Registry;
 import com.easy.simple.rpc.registry.RegistryFactory;
 import com.easy.simple.rpc.registry.impl.LocalRegistry;
 import com.easy.simple.rpc.server.HttpServer;
+import com.easy.simple.rpc.server.VertxTcpServer;
 
 /**
  * 简易服务提供者示例
@@ -35,7 +36,9 @@ public class EasyProviderExample {
         }
 
         // 启动 web 服务
-        HttpServer httpServer = rpcConfig.getServer();
-        httpServer.doStart(rpcConfig.getServerPort());
+//        HttpServer httpServer = rpcConfig.getServer();
+//        httpServer.doStart(rpcConfig.getServerPort());
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(rpcConfig.getServerPort());
     }
 }

@@ -82,13 +82,13 @@ public class SpiLoader {
         // 从实例缓存中加载指定类型的实例
         String implClassName = implClass.getName();
         if (!instanceCache.containsKey(implClassName)) {
-            try {
-                instanceCache.put(implClassName, implClass.newInstance());
-            } catch (InstantiationException | IllegalAccessException e) {
-                String errorMsg = String.format("%s 类实例化失败", implClassName);
-                throw new RuntimeException(errorMsg, e);
+                try {
+                    instanceCache.put(implClassName, implClass.getDeclaredConstructor().newInstance());
+                } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | java.lang.reflect.InvocationTargetException e) {
+                    String errorMsg = String.format("%s 类实例化失败", implClassName);
+                    throw new RuntimeException(errorMsg, e);
+                }
             }
-        }
         return (T) instanceCache.get(implClassName);
     }
 
