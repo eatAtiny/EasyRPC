@@ -1,0 +1,4 @@
+failOver=com.easy.simple.rpc.fault.tolerant.impl.FailOverTolerantStrategy
+failFast=com.easy.simple.rpc.fault.tolerant.impl.FailFastTolerantStrategy
+failSafe=com.easy.simple.rpc.fault.tolerant.impl.FailSafeTolerantStrategy
+failBack=com.easy.simple.rpc.fault.tolerant.impl.FailBackTolerantStrategy
