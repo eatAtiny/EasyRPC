@@ -31,7 +31,7 @@ public class FixedIntervalRetryStrategy implements RetryStrategy {
                 .withRetryListener(new RetryListener() {
                     @Override
                     public <V> void onRetry(Attempt<V> attempt) {
-                        log.info("重试次数 {}", attempt.getAttemptNumber());
+                        log.info("第 {} 次尝试连接", attempt.getAttemptNumber());
                     }
                 })// 重试监听器
                 .build();
