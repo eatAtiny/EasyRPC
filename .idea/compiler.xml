@@ -9,9 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="easy-rpc" />
         <module name="example-provider" />
-        <module name="example-consumer" />
+        <module name="spring-consumer" />
         <module name="example-common" />
+        <module name="spring-provider" />
+        <module name="example-consumer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-starter" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

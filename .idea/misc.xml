@@ -9,7 +9,15 @@
         <option value="$PROJECT_DIR$/example-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/example-common/pom.xml" />
         <option value="$PROJECT_DIR$/easy-rpc/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-consumer/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/spring-starter/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">

@@ -9,5 +9,11 @@
     <file url="file://$PROJECT_DIR$/example-consumer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/example-provider/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/example-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-starter/src/main/resources" charset="UTF-8" />
   </component>
 </project>

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/EasyRPC.iml" filepath="$PROJECT_DIR$/.idea/EasyRPC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easy-rpc/easy-rpc.iml" filepath="$PROJECT_DIR$/easy-rpc/easy-rpc.iml" />
     </modules>
   </component>
 </project>

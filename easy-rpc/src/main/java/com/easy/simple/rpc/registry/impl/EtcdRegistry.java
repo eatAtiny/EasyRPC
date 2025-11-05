@@ -197,6 +197,13 @@ public class EtcdRegistry implements Registry {
     @Override
     public void destroy() {
         System.out.println("当前节点下线");
+        
+        // 停止调度器
+        if (CronUtil.getScheduler().isStarted()) {
+            CronUtil.stop();
+            System.out.println("心跳调度器已停止");
+        }
+        
         // 下线节点
         for (String localRegisterNodeKey : localRegisterNodeKeySet) {
             try{
