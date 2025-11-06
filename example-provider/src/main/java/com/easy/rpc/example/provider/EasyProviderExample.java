@@ -36,7 +36,7 @@ public class EasyProviderExample {
         }
 
         // 启动 web 服务
-        WebServer server = ServerFactory.getInstance();
+        WebServer server = ServerFactory.getInstance(RpcApplication.getRpcConfig().getServerType());
         server.doStart(rpcConfig.getServerPort());
     }
 }
