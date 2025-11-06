@@ -133,6 +133,13 @@
             <optional>true</optional>
         </dependency>
         
+        <!-- YAML 支持 -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.2</version>
+        </dependency>
+        
         <!-- Spring核心依赖 -->
         <dependency>
             <groupId>org.springframework</groupId>

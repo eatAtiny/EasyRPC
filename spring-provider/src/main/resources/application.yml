@@ -1,0 +1,7 @@
+rpc:
+  serverPort: 8081
+  serviceHost: localhost1
+  serializerType: json
+  registryConfig:
+    registry: redis
+    address: localhost:6379
