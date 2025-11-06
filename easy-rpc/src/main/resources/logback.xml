@@ -26,5 +26,5 @@
     <logger name="com.easy" level="INFO" />
 
     <!-- 如果需要查看特定类的详细日志，可以单独配置 -->
-    <!-- 例如：<logger name="com.easy.simple.rpc.server.HttpServerHandler" level="DEBUG" /> -->
+    <!-- 例如：<logger name="com.easy.simple.rpc.server.impl.HttpServerHandler" level="DEBUG" /> -->
 </configuration>

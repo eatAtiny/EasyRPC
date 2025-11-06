@@ -3,7 +3,8 @@ package com.easy.simple.rpc.bootstrap;
 import com.easy.simple.rpc.annotation.EnableRpc;
 import com.easy.simple.rpc.RpcApplication;
 import com.easy.simple.rpc.config.RpcConfig;
-import com.easy.simple.rpc.server.VertxTcpServer;
+import com.easy.simple.rpc.server.WebServer;
+import com.easy.simple.rpc.server.ServerFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
@@ -35,8 +36,8 @@ public class RpcInitBootstrap implements ImportBeanDefinitionRegistrar {
 
         // 启动服务器
         if (needServer) {
-            VertxTcpServer vertxTcpServer = new VertxTcpServer();
-            vertxTcpServer.doStart(rpcConfig.getServerPort());
+            WebServer server = ServerFactory.getInstance(rpcConfig.getServerType());
+            server.doStart(rpcConfig.getServerPort());
         } else {
             log.info("不启动 server");
         }

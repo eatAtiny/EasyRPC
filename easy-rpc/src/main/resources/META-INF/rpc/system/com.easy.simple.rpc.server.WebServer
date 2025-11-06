@@ -1,0 +1,2 @@
+tcp=com.easy.simple.rpc.server.impl.VertxTcpServer
+http=com.easy.simple.rpc.server.impl.VertxHttpServer

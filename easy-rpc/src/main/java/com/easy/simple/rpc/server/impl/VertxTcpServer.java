@@ -1,10 +1,13 @@
-package com.easy.simple.rpc.server;
+package com.easy.simple.rpc.server.impl;
 
+import com.easy.simple.rpc.server.WebServer;
 import io.vertx.core.Vertx;
-import io.vertx.core.buffer.Buffer;
 import io.vertx.core.net.NetServer;
 
-public class VertxTcpServer implements HttpServer {
+/**
+ * Vertx TCP 服务器
+ */
+public class VertxTcpServer implements WebServer {
 
     @Override
     public void doStart(int port) {

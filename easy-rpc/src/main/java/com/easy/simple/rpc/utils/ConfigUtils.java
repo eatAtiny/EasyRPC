@@ -69,26 +69,30 @@ public class ConfigUtils {
         }
         
         // 检查YAML文件是否存在
-        InputStream yamlStream = ResourceUtil.getStream(yamlFileName);
-        if (yamlStream != null) {
-            try {
-                Yaml yaml = new Yaml();
-                Map<String, Object> yamlData = yaml.load(yamlStream);
-                return convertYamlToBean(yamlData, tClass, prefix);
-            } catch (Exception e) {
-                // YAML解析失败，尝试加载application.yaml
+        try {
+            InputStream yamlStream = ResourceUtil.getStream(yamlFileName);
+            if (yamlStream != null) {
                 try {
-                    String yamlAltFileName = yamlFileName.replace(".yml", ".yaml");
-                    InputStream yamlAltStream = ResourceUtil.getStream(yamlAltFileName);
-                    if (yamlAltStream != null) {
-                        Yaml yaml = new Yaml();
-                        Map<String, Object> yamlData = yaml.load(yamlAltStream);
-                        return convertYamlToBean(yamlData, tClass, prefix);
+                    Yaml yaml = new Yaml();
+                    Map<String, Object> yamlData = yaml.load(yamlStream);
+                    return convertYamlToBean(yamlData, tClass, prefix);
+                } catch (Exception e) {
+                    // YAML解析失败，尝试加载application.yaml
+                    try {
+                        String yamlAltFileName = yamlFileName.replace(".yml", ".yaml");
+                        InputStream yamlAltStream = ResourceUtil.getStream(yamlAltFileName);
+                        if (yamlAltStream != null) {
+                            Yaml yaml = new Yaml();
+                            Map<String, Object> yamlData = yaml.load(yamlAltStream);
+                            return convertYamlToBean(yamlData, tClass, prefix);
+                        }
+                    } catch (Exception ex) {
+                        // 忽略异常，继续尝试properties文件
                     }
-                } catch (Exception ex) {
-                    // 忽略异常，继续尝试properties文件
                 }
             }
+        } catch (Exception e) {
+            // 忽略文件不存在的异常，继续尝试其他格式
         }
         
         // 尝试加载application.yaml
@@ -97,15 +101,19 @@ public class ConfigUtils {
             yamlAltFileName = "application-" + environment + ".yaml";
         }
         
-        InputStream yamlAltStream = ResourceUtil.getStream(yamlAltFileName);
-        if (yamlAltStream != null) {
-            try {
-                Yaml yaml = new Yaml();
-                Map<String, Object> yamlData = yaml.load(yamlAltStream);
-                return convertYamlToBean(yamlData, tClass, prefix);
-            } catch (Exception e) {
-                // 忽略异常，继续尝试properties文件
+        try {
+            InputStream yamlAltStream = ResourceUtil.getStream(yamlAltFileName);
+            if (yamlAltStream != null) {
+                try {
+                    Yaml yaml = new Yaml();
+                    Map<String, Object> yamlData = yaml.load(yamlAltStream);
+                    return convertYamlToBean(yamlData, tClass, prefix);
+                } catch (Exception e) {
+                    // 忽略异常，继续尝试properties文件
+                }
             }
+        } catch (Exception e) {
+            // 忽略文件不存在的异常，继续尝试properties文件
         }
         
         return null;

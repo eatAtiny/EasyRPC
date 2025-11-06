@@ -4,8 +4,7 @@ import com.easy.simple.rpc.fault.retry.RetryStrategyType;
 import com.easy.simple.rpc.fault.tolerant.TolerantStrategyType;
 import com.easy.simple.rpc.loadbalance.LoadBalancerType;
 import com.easy.simple.rpc.serializer.SerializerType;
-import com.easy.simple.rpc.server.HttpServer;
-import com.easy.simple.rpc.server.VertxHttpServer;
+import com.easy.simple.rpc.server.ServerType;
 import lombok.Data;
 
 /**
@@ -18,8 +17,8 @@ public class RpcConfig {
     // 默认服务端口
     private int serverPort = 8080;
     
-    // 默认服务器类型
-    private String serverType = "vertx";
+    // 默认服务类型
+    private String serverType = ServerType.TCP.getType();
     
     // 远程服务ip
     private String serviceHost = "localhost";
@@ -39,11 +38,14 @@ public class RpcConfig {
     // 重试策略
     private String retryStrategyType = RetryStrategyType.NO.getType();
 
-     // 容错策略
+    // 容错策略
     private String tolerantStrategyType = TolerantStrategyType.FAIL_FAST.getType();
+
+    // 连接超时时间（单位毫秒）
+    private int connectionTimeout = 5000;
 
 
 
     // 服务器
-//    private HttpServer server = new VertxHttpServer();
+//    private WebServer server = new VertxHttpServer();
 }

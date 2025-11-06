@@ -1,9 +1,9 @@
 package com.easy.simple.rpc.server;
 
 /**
- * HTTP 服务器接口
+ * 服务器接口（统一HTTP和TCP服务器）
  */
-public interface HttpServer {
+public interface WebServer {
 
     /**
      * 启动服务器

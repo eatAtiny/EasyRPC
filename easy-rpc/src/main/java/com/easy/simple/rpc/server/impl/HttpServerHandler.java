@@ -1,4 +1,4 @@
-package com.easy.simple.rpc.server;
+package com.easy.simple.rpc.server.impl;
 
 import com.easy.simple.rpc.RpcApplication;
 import com.easy.simple.rpc.enity.RpcRequest;

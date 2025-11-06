@@ -9,7 +9,8 @@ import com.easy.simple.rpc.enity.ServiceMetaInfo;
 import com.easy.simple.rpc.registry.Registry;
 import com.easy.simple.rpc.registry.RegistryFactory;
 import com.easy.simple.rpc.registry.impl.LocalRegistry;
-import com.easy.simple.rpc.server.VertxTcpServer;
+import com.easy.simple.rpc.server.WebServer;
+import com.easy.simple.rpc.server.ServerFactory;
 
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class ProviderBootstrap {
         }
 
         // 启动服务器
-        VertxTcpServer vertxTcpServer = new VertxTcpServer();
-        vertxTcpServer.doStart(rpcConfig.getServerPort());
+        WebServer server = ServerFactory.getInstance(rpcConfig.getServerType());
+        server.doStart(rpcConfig.getServerPort());
     }
 }

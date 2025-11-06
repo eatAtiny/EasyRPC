@@ -25,7 +25,13 @@ public class RegistryFactory {
      * @return
      */
     public static Registry getInstance(String key) {
-        return SpiLoader.getInstance(Registry.class, key);
+        try{
+            return SpiLoader.getInstance(Registry.class, key);
+        } catch (Exception e) {
+            System.err.println("获取注册中心失败: " + e.getMessage());
+            System.out.println("使用默认注册中心: " + DEFAULT_REGISTRY.getClass().getName());
+            return DEFAULT_REGISTRY;
+        }
     }
 
 }

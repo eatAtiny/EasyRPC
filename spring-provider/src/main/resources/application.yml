@@ -1,6 +1,7 @@
 rpc:
+  serverType: http
   serverPort: 8081
-  serviceHost: localhost1
+  serviceHost: localhost
   serializerType: json
   registryConfig:
     registry: redis
